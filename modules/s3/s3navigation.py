@@ -146,6 +146,9 @@ class S3NavigationItem(object):
         if isinstance(label, basestring) and translate:
             self.label = T(label)
         else:
+            # fix for ")" in languages menu in rtl
+            if label[len(label)-1] is ")":
+                label = label.replace(")",")‎")
             self.label = label
 
         # Register tags
