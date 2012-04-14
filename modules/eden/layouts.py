@@ -105,6 +105,12 @@ class S3MainMenuLayout(S3NavigationItem):
                                 return None
                         else:
                             label = item.label
+                            
+                        if len(item.args) > 0:
+                            if item.args[0] is "lang" and item.label[len(item.label)-1] is ")":
+                                # if in a rtl language, language name ends with a ")"
+                                label = label.replace(")",")‎")
+                            
                         link = A(label, _href=item.url(), _id=item.attr._id)
                         return LI(link)
             else:

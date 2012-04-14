@@ -127,6 +127,7 @@ class S3MainMenu:
         for language in s3.l10n_languages:
             menu_lang.append(MM(s3.l10n_languages[language], r=request,
                                 translate=False,
+                                args="lang",
                                 vars={"_language":language}))
         return menu_lang
 
